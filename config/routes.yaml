@@ -1,0 +1,8 @@
+# index:
+#    path: /
+#    controller: App\Controller\ListController::index
+
+# save:
+#    path: /list/save
+#    controller: App\Controller\ListController::save
+

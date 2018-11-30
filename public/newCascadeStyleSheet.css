@@ -1,0 +1,12 @@
+body { 
+    padding-bottom: 30px;
+}
+
+table thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #fff;
+}
+

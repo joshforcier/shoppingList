@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Shopping List{% endblock %}
+
+{% block body %}
+
+    {% if items %}
+        <p>
+            <table  id="header-fixed" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item.item }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.unit }}</td>
+                            <td style="text-align: right">
+                                <a href="/edit/{{ item.id }}" class="btn btn-light"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="/delete/{{ item.id }}" class="btn btn-danger delete-item" data-id="{{ item.id }}"><span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </p>
+        
+    {% else %}
+        <p>No item to display</p>
+    {% endif %}
+    
+    <div class="navbar navbar-default navbar-static-bottom navbar-fixed-bottom"> 
+        <a href="/add/" class="btn btn-primary btn-block">Add Item</a>
+    </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="/js/main.js"></script>
+
+{% endblock %}
