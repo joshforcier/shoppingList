@@ -6,23 +6,23 @@
 
     {% if items %}
         <p>
-            <table  id="header-fixed" class="table table-striped">
+            <table  id="item-table" class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Quantity</th>
-                        <th>Unit</th>
-                        <th></th>
+                        <th class="item">Item</th>
+                        <th class="quantity">#</th>
+                        <th class="unit">Unit</th>
+                        <th class="table-buttons"></th>
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="items">
                     {% for item in items %}
                         <tr>
-                            <td>{{ item.item }}</td>
-                            <td>{{ item.quantity }}</td>
-                            <td>{{ item.unit }}</td>
-                            <td style="text-align: right">
+                            <td class="item">{{ item.item }}</td>
+                            <td class="quantity">{{ item.quantity }}</td>
+                            <td class="unit">{{ item.unit }}</td>
+                            <td class="table-buttons">
                                 <a href="/edit/{{ item.id }}" class="btn btn-light"><span class="glyphicon glyphicon-pencil"></span></a>
                                 <a href="/delete/{{ item.id }}" class="btn btn-danger delete-item" data-id="{{ item.id }}"><span class="glyphicon glyphicon-trash"></span></a>
                             </td>
@@ -31,15 +31,15 @@
                 </tbody>
             </table>
         </p>
-        
+
     {% else %}
         <p>No item to display</p>
     {% endif %}
-    
-    <div class="navbar navbar-default navbar-static-bottom navbar-fixed-bottom"> 
+
+    <div class="navbar navbar-default navbar-static-bottom navbar-fixed-bottom">
         <a href="/add/" class="btn btn-primary btn-block">Add Item</a>
     </div>
-    
+
 {% endblock %}
 
 {% block javascripts %}

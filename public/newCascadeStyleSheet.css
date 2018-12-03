@@ -10,3 +10,42 @@ table thead {
     background: #fff;
 }
 
+table {
+    table-layout:fixed;
+}
+
+#items > tr > td {
+    padding: 2px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.item, .quantity, .unit {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 2px;
+}
+
+.quantity {
+    width: 45px;
+    padding: 1px;
+}
+
+.unit {
+    width: 65px;
+}
+
+.table-buttons {
+    width: 100px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.login {
+    margin-bottom: 10px;
+}
+
+.error {
+    color: red;
+}

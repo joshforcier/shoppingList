@@ -22,7 +22,7 @@ class ShoppingList
     private $item;
 
     /**
-    * @ORM\Column(type="integer")
+    * @ORM\Column(type="integer", length=5)
     */
     private $quantity;
 
