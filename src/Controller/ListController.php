@@ -32,7 +32,6 @@ class ListController extends Controller {
     */
     public function edit(Request $request, $id)
     {
-        $item = new ShoppingList();
         $item = $this->getDoctrine()->getRepository(ShoppingList::class)->find($id);
 
         $form = $this->createFormBuilder($item)
@@ -60,7 +59,7 @@ class ListController extends Controller {
     * @Route("/delete/{id}", name="delete")
     * @Method({"DELETE"})
     */
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
         $item = new ShoppingList();
         $item = $this->getDoctrine()->getRepository(ShoppingList::class)->find($id);

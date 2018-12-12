@@ -1,5 +1,7 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
     providers:
         my_provider:
             entity:
@@ -13,9 +15,16 @@ security:
             anonymous: true
 
             form_login:
-                login_path: login
-                check_path: login
+                login_path: app_security_login
+                check_path: app_security_login
                 provider: my_provider
+
+            logout:
+                path: /logout
+                target: /login
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
             # activate different ways to authenticate
 
             # http_basic: true
